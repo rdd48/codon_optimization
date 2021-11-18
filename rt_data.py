@@ -70,6 +70,7 @@ pichia_codon_dict = {
 	'*': ['TAA', 'TAG', 'TGA']
 }
 
+b_subtilis_codon_dict = {'A': ['GCA', 'GCG', 'GCT', 'GCC'], 'C': ['TGC', 'TGT'], 'D': ['GAT', 'GAC'], 'E': ['GAA', 'GAG'], 'F': ['TTT', 'TTC'], 'G': ['GGC', 'GGA', 'GGT', 'GGG'], 'H': ['CAT', 'CAC'], 'I': ['ATT', 'ATC', 'ATA'], 'K': ['AAA', 'AAG'], 'L': ['CTG', 'CTT', 'TTA', 'TTG', 'CTC', 'CTA'], 'M': ['ATG'], 'N': ['AAT', 'AAC'], 'P': ['CCG', 'CCT', 'CCA', 'CCC'], 'Q': ['CAA', 'CAG'], 'R': ['AGA', 'CGC', 'CGT', 'CGG', 'CGA', 'AGG'], 'S': ['TCA', 'AGC', 'TCT', 'TCC', 'AGT', 'TCG'], 'T': ['ACA', 'ACG', 'ACC', 'ACT'], 'V': ['GTT', 'GTG', 'GTC', 'GTA'], 'W': ['TGG'], 'Y': ['TAT', 'TAC'], '*': ['TAA', 'TGA', 'TAG']}
 
 ############################################
 # codon frequency dicts below #
@@ -100,6 +101,25 @@ pichia_codon_freq = {
 	'GCT': 29.6, 'GCC': 16.7, 'GCA': 15.9, 'GCG': 3.7, 
 	'GGT': 26.6, 'GGC': 8.6, 'GGA': 20.0, 'GGG': 6.4}
 
+b_subtilis_codon_freq = {
+	'TTT': 30.0, 'TTC': 14.3, 'TTA': 19.8, 'TTG': 15.8, 
+	'TAT': 23.3, 'TAC': 12.6, 'TAA': 1.9, 'TAG': 0.5, 
+	'CTT': 21.8, 'CTC': 10.7, 'CTA': 4.9, 'CTG': 23.0, 
+	'CAT': 15.7, 'CAC': 7.5, 'CAA': 20.4, 'CAG': 18.5, 
+	'ATT': 36.2, 'ATC': 27.2, 'ATA': 9.8, 'ATG': 26.3, 
+	'AAT': 22.9, 'AAC': 17.8, 'AAA': 48.4, 'AAG': 20.8, 
+	'GTT': 18.6, 'GTC': 17.3, 'GTA': 13.0, 'GTG': 17.3, 
+	'GAT': 33.2, 'GAC': 19.0, 'GAA': 48.1, 'GAG': 22.6, 
+	'TCT': 12.7, 'TCC': 8.3, 'TCA': 14.6, 'TCG': 6.5, 
+	'TGT': 3.6, 'TGC': 4.3, 'TGA': 0.8, 'TGG': 10.7, 
+	'CCT': 10.6, 'CCC': 3.5, 'CCA': 7.1, 'CCG': 16.3, 
+	'CGT': 7.2, 'CGC': 8.2, 'CGA': 4.3, 'CGG': 6.9, 
+	'ACT': 8.7, 'ACC': 9.0, 'ACA': 21.6, 'ACG': 14.9, 
+	'AGT': 6.8, 'AGC': 14.4, 'AGA': 10.5, 'AGG': 4.1, 
+	'GCT': 18.6, 'GCC': 16.5, 'GCA': 21.1, 'GCG': 19.8, 
+	'GGT': 13.0, 'GGC': 23.3, 'GGA': 21.8, 'GGG': 11.2
+}
+
 restriction_enzymes = {
 	'bamhi':  'GGATCC',
 	'ndei': 'CATATG', 
@@ -115,6 +135,8 @@ def get_codon_dict(species='ecoli'):
         return(saccharomyces_codon_dict, saccharomyces_codon_freq)
     elif species.lower() in ['pichia', 'pichia', 'pichia pastoris', 'p pastoris']:
         return(pichia_codon_dict, pichia_codon_freq)
+    elif species.lower() in ['b_subtilis', 'subtilis', 'bacillus_subtilis', 'bacillus subtilis']:
+        return(b_subtilis_codon_dict, b_subtilis_codon_freq)
     else:
         return('Species not found! Try: ecoli, saccharomyces, or pichia.')
 		
